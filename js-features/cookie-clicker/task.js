@@ -5,10 +5,5 @@ let counter = 0;
 imgHtml.onclick = () => {
     counter++;
     spanHtml.textContent = counter;
-
-    if (counter % 2 == 0) {
-        imgHtml.width -= 20;
-    } else {
-        imgHtml.width += 20;
-    }
+    imgHtml.width = counter % 2 ? 220 : 200;
 }
