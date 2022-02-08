@@ -2,17 +2,25 @@ let modalMain = document.getElementById("modal_main");
 modalMain.className += " modal_active";
 
 let modalClose = Array.from(document.querySelectorAll(".modal__close"));
-let showSuccess = Array.from(document.getElementsByClassName("show-success"));
-let modalSuccess = document.getElementById("modal_success")
+let showSuccess = document.querySelector(".show-success");
+let modalSuccess = document.getElementById("modal_success");
 
-modalClose[0].onclick = () => {
-    modalMain.className = " modal";
-}
-modalClose[2].onclick = () => {
-    modalMain.className = " modal";
-    modalSuccess.className = " modal";
+for (let index = 0; index < modalClose.length; index++) {
+
+    function giveName(index) {
+        let modalCloseFn = modalClose[index];
+        return modalCloseFn
+    }
+
+    let modalCloseItem = giveName(index);
+
+    modalCloseItem.onclick = function() {
+        modalMain.className = " modal";
+        modalSuccess.className = " modal";
+    }
 }
 
-showSuccess[0].onclick = () => {
+showSuccess.onclick = () => {
+    modalMain.className = " modal";
     modalSuccess.className += " modal_active";
 }
