@@ -22,5 +22,5 @@ for (let index = 0; index < dropdownLink.length; index++) {
         event.preventDefault();
     }
 
-    dropdownLinkName.addEventListener("click", dropdownLinkEvent, false);
+    dropdownLinkName.addEventListener("click", dropdownLinkEvent);
 }
