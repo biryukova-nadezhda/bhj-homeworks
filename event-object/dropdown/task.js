@@ -16,17 +16,11 @@ for (let index = 0; index < dropdownLink.length; index++) {
 
     let dropdownLinkName = giveName(index);
 
-    dropdownLinkName.onclick = () => {
+    function dropdownLinkEvent(event) {
         dropdownList.className = "dropdown__list";
         dropdownValue.textContent = dropdownLinkName.textContent;
-        return false
+        event.preventDefault();
     }
 
-    /*function dropdownLinkEvent() {
-        dropdownList.className = "dropdown__list";
-        dropdownValue.textContent = dropdownLinkName.textContent;
-        return false
-    }
-
-    dropdownLinkName.addEventListener("click", dropdownLinkEvent, false);*/
+    dropdownLinkName.addEventListener("click", dropdownLinkEvent, false);
 }

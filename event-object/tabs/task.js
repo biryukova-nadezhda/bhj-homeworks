@@ -18,7 +18,7 @@ for (let index = 0; index < tabHtml.length; index++) {
             let elementContent = document.querySelector(".tab__content_active");
 
             elementActive.className = "tab";
-            elementContent.className = "tab__contents";
+            elementContent.className = "tab__content";
 
             tabName.className += " tab_active";
             tabContentHtml[index].className += " tab__content_active";
