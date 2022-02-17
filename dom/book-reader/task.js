@@ -1,8 +1,6 @@
 let book = document.getElementById("book");
 let fontSize = Array.from(document.querySelectorAll(".font-size"));
-let color = Array.from(document.querySelectorAll(".color"))
-
-book.classList.add("font-size_active")
+let color = Array.from(document.querySelectorAll(".color"));
 
 function resize(element) {
 
