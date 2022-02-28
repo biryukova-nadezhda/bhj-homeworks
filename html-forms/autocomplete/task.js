@@ -81,21 +81,20 @@ class Autocomplete {
           }
         */
 
-        let array = [{
-            text: "Хай",
-            value: this.input.value,
-        }];
-        console.log(array)
+        let inputOptions = this.input.options;
+        let result = [];
 
-        /*return [{
-            text: 'Чубакка',
-            value: '1'
-        }];*/
+        for (let option of inputOptions) {
 
-        return [{
-            text: "Хай",
-            value: this.input.value,
-        }];
+            if (option.innerText.includes(text)) {
+                result.push({
+                    text: option.innerText,
+                    value: option.value,
+                });
+            }
+        }
+
+        return result;
     }
 }
 
