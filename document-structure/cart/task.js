@@ -1,25 +1,66 @@
-let basket = document.querySelector(".cart__products");
-let products = Array.from(document.querySelectorAll(".product"));
+//Нахождение элементов 
 let quantityControl = Array.from(document.querySelectorAll(".product__quantity-control"));
+let buttonAdd = Array.from(document.querySelectorAll(".product__add"));
+let basket = document.querySelector(".cart__products");
 
-//console.log(quantityControl)
+//Определение функций
+function chancheValue(item) {
+	let curentValue = item.parentElement.querySelector(".product__quantity-value").textContent;
+		
+	if(item.className.includes("product__quantity-control_dec")) {
+		curentValue--;
+		item.parentElement.querySelector(".product__quantity-value").textContent = curentValue;
+	}
 
-quantityControl.forEach((elem) => {
-    elem.onclick = () => {
-            let elemContent = elem.closest(".product__quantity-controls").querySelector(".product__quantity-value").textContent;
+	if(item.className.includes("product__quantity-control_inc")) {
+		curentValue++;
+		item.parentElement.querySelector(".product__quantity-value").textContent = curentValue;
+	}
 
-            let curentQuantity = Number(elemContent);
-            curentQuantity++
-            console.log(`${curentQuantity}`)
-            if (elem.className.includes("product__quantity-control_dec")) {
-                curentQuantity++;
-                elemContent = `${curentQuantity}`;
-                //console.log(elem.closest(".product__quantity-controls").querySelector(".product__quantity-value").textContent = 5)
-            }
+	if(curentValue < 0) {
+		curentValue = 0;
+		item.parentElement.querySelector(".product__quantity-value").textContent = curentValue;
+	}
+}
 
-            if (elem.className.includes("product__quantity-control_inc")) {
-                console.log("+");
-            }
-        }
-        //console.log(elem)
+function addBasket(item) {
+	let id = item.closest(".product").dataset.id;
+	let curentValue = item.parentElement.querySelector(".product__quantity-value").textContent;
+	let srcImage = item.closest(".product").querySelector(".product__image").src;
+	let createBlock = `
+			<div class="cart__product", data-id = "${id}">
+				<img class="cart__product-image", src="${srcImage}">
+				<div class="cart__product-count"> ${curentValue} </div>
+			</div>`;
+	
+	let basketContent = Array.from(basket.querySelectorAll(".cart__product"));
+
+	if(basketContent.length === 0) {
+		basket.insertAdjacentHTML('afterBegin', createBlock);
+	} else {
+		basketContent.forEach((el) => {
+		if(el.dataset.id === id) {
+			el.querySelector(".cart__product-count").textContent = curentValue;	
+		}
+		else {
+			basket.insertAdjacentHTML('afterBegin', createBlock);
+		}
+
+	})		
+}
+}
+
+//Назначение обаботчиков событий
+quantityControl.forEach((item) => {
+
+	item.onclick = () => {
+		chancheValue(item);
+	}
+})
+
+buttonAdd.forEach((item) => {
+
+	item.onclick = () => {
+		addBasket(item);
+	}
 })
