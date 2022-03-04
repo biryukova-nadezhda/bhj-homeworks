@@ -38,16 +38,15 @@ function addBasket(item) {
 	if(basketContent.length === 0) {
 		basket.insertAdjacentHTML('afterBegin', createBlock);
 	} else {
-		basketContent.forEach((el) => {
-		if(el.dataset.id === id) {
-			el.querySelector(".cart__product-count").textContent = curentValue;	
-		}
-		else {
+		let check = basketContent.find((el) => el.dataset.id === id);
+
+		if(check === undefined) {
 			basket.insertAdjacentHTML('afterBegin', createBlock);
+		} else {
+			check.querySelector(".cart__product-count").textContent = curentValue;
 		}
 
-	})		
-}
+	}
 }
 
 //Назначение обаботчиков событий
