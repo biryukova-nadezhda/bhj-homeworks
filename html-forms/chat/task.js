@@ -56,6 +56,7 @@ function sendMessageBot() {
     message.appendChild(messageText);
 
     messagesBox.appendChild(message);
+    message.scrollIntoView();
 }
 
 function sendMessage() {
@@ -78,6 +79,7 @@ function sendMessage() {
     message.appendChild(messageText);
 
     messagesBox.appendChild(message);
+    message.scrollIntoView();
     input.value = "";
 
     sendMessageBot();
