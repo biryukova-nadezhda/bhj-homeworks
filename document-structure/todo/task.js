@@ -12,16 +12,14 @@ function createTask() {
     </a></div>`);
 
     input.value = "";
+    
+    let removeElement = taskList.querySelector(".task").querySelector(".task__remove");
 
-    //Добавление обработчика на крестик и удалениие задачи
-    let removeELement = Array.from(document.querySelectorAll(".task__remove"));
-
-    for (let element of removeELement) {
-        element.onclick = () => {
-            element.parentElement.remove();
-            return false
-        }
+    removeElement.onclick = () => {
+    	removeElement.parentElement.remove();
+    	return false
     }
+    
 }
 
 buttonAdd.addEventListener("click", (event) => {
