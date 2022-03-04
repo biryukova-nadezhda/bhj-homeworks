@@ -12,6 +12,10 @@ link.forEach((item) => {
         tooltip.style.left = item.getBoundingClientRect().left + "px";
 
         item.parentElement.insertBefore(tooltip, item);
+        
+        tooltip.onclick = () => {
+        	tooltip.className = "tooltip";
+        }
 
         return false
     }
