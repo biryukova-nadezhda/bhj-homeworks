@@ -1,9 +1,11 @@
 .signin {
-  display: none;
+    display: none;
 }
+
 .signin_active {
-  display: block;
+    display: block;
 }
+
 .control {
     width: 100%;
     display: block;
@@ -14,6 +16,8 @@
     box-sizing: border-box;
 }
 
+
+/*
 .btn {
   font-family: Golos, Arial, sans-serif;
   color: #fff;
@@ -35,13 +39,43 @@
   white-space: nowrap;
   font-weight: 500;
   box-shadow: none;
-}
+}*/
 
 .welcome {
-  display: none;
+    display: none;
 }
 
 .welcome_active {
-  display: block;
-  text-align: center;
+    display: block;
+    text-align: center;
+}
+
+.btn {
+    font-family: Golos, Arial, sans-serif;
+    color: #fff;
+    background-color: #06f;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow: hidden;
+    outline: none;
+    padding: 8px 12px;
+    text-align: center;
+    transition: 0.3s ease;
+    text-decoration: none;
+    user-select: none;
+    vertical-align: top;
+    white-space: nowrap;
+    font-weight: 500;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.btn_signin {
+    margin: 0 0 20px 0;
+}
+
+.btn_logout {
+    margin: 20px 0 20px 50px;
 }
